@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Super Snail
-subtitle: At the bottom of the well, it is destined to see only the sky at the wellhead. 
-          However, the starting point only affects the process of reaching your peak and does not determine the height you reach.
-author: Dusign
+title: Trans Angels
+subtitle: Instability is a virtue
+          However, the starting point only affects the process.
+author: sweetbabyalaska
 language: en
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://dusign.net       # Note: don't forget to modify the CNAME file to your url
+url: https://github.com/sweetbbak/sweetbbak.github.io       # Note: don't forget to modify the CNAME file to your url
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -23,16 +23,16 @@ permalink_defaults:
 SEOTitle: Hexo-theme-snail
 email: hexo-theme-snail@mail.com
 description: "A hexo theme"
-keyword: "dusign, hexo-theme-snail"
+keyword: "sweetbabyalaska, hexo-theme-snail"
 header-img: img/header_img/home-bg-1-dark.jpg
 signature: true #show signature
-signature-img: img/signature/dusign.png
+signature-img: img/signature/grill-girl.gif
 
 # SNS settings
-github_username:    dusign
-twitter_username:   dusignr
-facebook_username:  Gang Du
-zhihu_username: dusignr
+github_username:    sweetbbak
+twitter_username:   sweetbabyalaska
+facebook_username:  buttstuff
+zhihu_username: weenie
 
 # Build settings
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
@@ -46,8 +46,8 @@ ga_domain: yoursite
 
 # Sidebar settings
 sidebar: true                      # whether or not using Sidebar.
-sidebar-about-description: "Welcome to visit, I'm Dusign!"
-sidebar-avatar: img/ironman-draw.png      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "Welcome :P"
+sidebar-avatar: img/afnime-cry.gif      # use absolute URL, seeing it's used in both `/` and `/about/`
 widgets:
 - search
 - featured-tags
@@ -79,14 +79,14 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 ## Friends
 friends: [
     {
-        title: "Dusign's Blog",
-        href: "https://blog.csdn.net/d_Nail"
+        title: "sweets blog",
+        href: "https://medium.com/sweetbabyalaska"
     },{
-        title: "Dusign's Web",
+        title: "sweets Web",
         href: "#"
     },{
-        title: "Dusign's Github",
-        href: "https://github.com/dusign"
+        title: "sweets Github",
+        href: "https://github.com/sweetbbak"
     },{
         title: "Other",
         href: "#"
@@ -111,7 +111,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :year-:month-:day-:title.md # File name of new posts
+new_post_name: :month-:day-:year-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
@@ -136,7 +136,7 @@ home_posts_tag: true # show posts tags
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
+date_format: MM-DD-YYYY
 time_format: HH:mm:ss
 
 # Pagination
@@ -178,8 +178,8 @@ path: baidusitemap.xml
 deploy:
   type: git
   repo:
-      github:
-      coding:
+      github: https://github.com/sweetbbak/sweetbbak.github.io
+      coding: https://github.com/sweetbbak/Blog
   branch: master
 
 ## share
@@ -212,7 +212,7 @@ music:
 # Tip
 tip:
   enable: true
-  copyright: This is copyright.
+  copyright: no copyright.
   content: false
 
 # Background effects
@@ -229,7 +229,7 @@ bg_effects:
     count: 99
   mouse_click:
     enable: true
-    content: '"🌱","just do it","🍀"'
+    content: '"🏳️‍⚧️","trans rights","🥴"'
     color: '"rgb(121,93,179)"
           ,"rgb(76,180,231)"
           ,"rgb(184,90,154)"'
@@ -240,7 +240,7 @@ bg_effects:
 ## light , dark or star
 ## If you set the value of the `color_theme` to `dark`, set the value of the `highlight_theme` to `night` in `/theme/snail/config.yml`
 ## `mouse_control` is only valid for star themes
-color_theme: light
+color_theme: dark
 mouse_control: false
 
 # Visitor statistics

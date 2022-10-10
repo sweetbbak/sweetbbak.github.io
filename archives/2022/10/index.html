@@ -20,7 +20,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://github.com/sweetbbak/sweetbbak.github.io/archives/2022/10/">
+    <link rel="canonical" href="https://sweetbbak.github.io/archives/2022/10/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -177,13 +177,6 @@
 
                         
                         <li>
-                            <a href="/photography/">Photography</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/categories/">Categories</a>
                         </li>
                         
@@ -195,11 +188,14 @@
                         </li>
                         
                     
+
+                        
+                        <li>
+                            <a href="/photography/">Photography</a>
+                        </li>
+                        
                     
                     
-                    <li>
-                        <a href="YOUR_CHINESE_BLOG_URL" target="_blank">Chinese Blog</a>
-                    </li>
                     
                 </ul>
             </div>
@@ -538,7 +534,7 @@
                     Copyright &copy; sweetbabyalaska 2022 
                     <br>
                     Powered by 
-                    <a href="https://github.com/dusign/hexo-theme-snail">
+                    <a href="https://github.com/dusign/hexo-theme-snail" target="_blank" rel="noopener">
                         <i>hexo-theme-snail</i>
                     </a> | 
                     <iframe name="star" style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0"
@@ -589,7 +585,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://github.com/sweetbbak/sweetbbak.github.io/js/jquery.tagcloud.js",function(){
+        async("https://sweetbbak.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -661,7 +657,7 @@
         
 
         
-            <script type="text/javascript" src="/js/mouse-click.js" content='[&#34;🏳️‍⚧️&#34;,&#34;trans rights&#34;,&#34;🥴&#34;]' color='[&#34;rgb(121,93,179)&#34; ,&#34;rgb(76,180,231)&#34; ,&#34;rgb(184,90,154)&#34;]'></script>
+            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🏳️‍⚧️&quot;,&quot;trans rights&quot;,&quot;🥴&quot;]' color='[&quot;rgb(121,93,179)&quot; ,&quot;rgb(76,180,231)&quot; ,&quot;rgb(184,90,154)&quot;]'></script>
         
 
         <!-- background effects end -->
@@ -671,6 +667,21 @@
     
         <script src="/js/ribbonDynamic.js"></script>
     
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 
 </html>

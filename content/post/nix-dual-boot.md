@@ -1,7 +1,13 @@
 +++
-title = 'Nix Dual Boot'
-date = 2024-05-31T22:47:23-08:00
-draft = true
+author = "sweetbbak"
+title = "Nix Dual Boot"
+date = "2024-05-31"
+description = "How to dual boot NixOS with Linux"
+tags = [
+    "nix",
+    "markdown",
+    "text",
+]
 +++
 
 # How to dual-boot NixOS with Linux
@@ -21,7 +27,7 @@ Boot into NixOS, close that installer and pull up a terminal! (I know, scary rig
 
 lets get a good idea of what the disks situation looks like, run:
 
-```sh
+```fish {linenos=table,hl_lines=[1,"15-17"],linenostart=1}
 lsblk -fa
 
 ```
@@ -30,7 +36,7 @@ This will output our disks alongside their UUID
 
 (edited for brevity)
 
-```sh
+```fish
 NAME        FSTYPE FSVER LABEL    UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
 sda
 └─sda1      ext4   1.0            9fd4533e-aa5d-42d4-8f47-bdfccc870492    2.6T    21% /home/sweet/hdd
@@ -58,7 +64,7 @@ Remember to take note of the partitions full disk name (for example, nvme1n1p1 o
 
 Next, if you haven't opened that terminal yet, do so. Lets mount that partition at `/mnt`
 
-```sh
+```fish
 sudo mkdir -p /mnt
 sudo mount /dev/nvme2n1p1 /mnt
 # remember to replace nvme2n1p1 with your disk partition
@@ -67,7 +73,7 @@ sudo mount /dev/nvme2n1p1 /mnt
 
 Next, we will create the `boot` directory inside the mounted partition:
 
-```sh
+```fish
 sudo mkdir -p /mnt/boot
 ```
 
@@ -75,7 +81,7 @@ Now we want to take our existing EFI partition and mount it at `/mnt/boot`
 My existing EFI partition is on disk `nvme1n1` partition `nvme1n1p1` it is typically labeled
 as `FAT` or `VFAT` and may or may not have a label indicating that it is an EFI or BOOT partition.
 
-```sh
+```fish
 sudo mount /dev/nvme1n1p1 /mnt/boot
 ```
 
@@ -88,7 +94,7 @@ optionally, you can also mount your existing home partition at `/mnt/home` if yo
 You can also do this step at a later time so if you are having trouble deciding there is no
 harm in waiting either.
 
-```sh
+```fish
 sudo mkdir -p /mnt/home
 sudo mount /dev/existing_home_partition /mnt/home
 ```
@@ -100,7 +106,7 @@ sudo mount /dev/existing_home_partition /mnt/home
 next we are going to generate our Nix config that will direct the nix-install
 Run:
 
-```sh
+```fish
 nixos-generate-config --root /mnt
 ```
 
@@ -108,7 +114,7 @@ This will generate a config file at `/mnt/etc/nixos/configuration.nix`
 
 In the generated config file add:
 
-```sh
+```nix
 nixpkgs.config.allowUnfree = true;
 ```
 
@@ -122,7 +128,7 @@ it minimal. You do not have to worry about mounting extra disks at this point.
 
 Finally, execute:
 
-```sh
+```fish
 nixos-install
 ```
 
@@ -131,7 +137,7 @@ if any errors pop-up, fix them now. This is imperative, especially if you are tw
 
 and lets reboot:
 
-```sh
+```fish
 reboot
 ```
 
@@ -160,7 +166,7 @@ file and change user options.
 
 For me, I ran
 
-```sh
+```fish
 mkpasswd hunter2
 ```
 
@@ -168,7 +174,7 @@ and copy-pasted the password hash into my user password config
 
 and then ran the following to set my user password:
 
-```sh
+```fish
 passwd your_username
 ```
 
@@ -188,7 +194,7 @@ I enabled systemd-boot and allowed nix to manage boot entries (this hasn't overw
 I turned down the log level since I am using a TUI display manager and limited the amount
 of Nix generations to keep in the boot menu to 9.
 
-```sh
+```nix
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.consoleLogLevel = 1;
@@ -202,7 +208,7 @@ Use `users.users.your_username`
 
 (hash edited for brevity)
 
-```sh
+```nix
   users.users.sweet = {
     isNormalUser = true;
     extraGroups = [ "input" "audio" "video" "libvirt" "wheel" ]; # Enable ‘sudo’ for the user.
@@ -220,7 +226,7 @@ Use `users.users.your_username`
 allow the user to run random non-nix binaries.
 set-up nix garbage collection to manage space
 
-```sh
+```nix
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [ # check out src code for steam-run for an extensive list of LD libraries that let most binaries run
     stdenv.cc
@@ -232,7 +238,7 @@ set-up nix garbage collection to manage space
 
 ### Using greetd and Wayland
 
-```sh
+```nix
   services.greetd = {
     enable = true;
     settings = {
@@ -246,7 +252,7 @@ set-up nix garbage collection to manage space
 
 ### Nerd Fonts and Steam
 
-```sh
+```nix
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
@@ -277,7 +283,7 @@ set-up nix garbage collection to manage space
 
 ### Hyprland
 
-```sh
+```nix
   xdg.portal.enable = true;
   programs.hyprland.enable = true;
   programs.zsh.enable = true;
@@ -292,7 +298,7 @@ and import it into my packages. You can mix and match packages as you please:
 
 create a file at `/etc/nixos/unstable.nix` and import it into `configuration.nix` or add it directly into your `configuration.nix` file.
 
-```sh
+```nix
 { config, pkgs, ...}:
 
 let
@@ -308,7 +314,7 @@ in {
 
 make sure to actually add the unstable channel
 
-```sh
+```fish
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --update
 

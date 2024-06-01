@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Themes on sweet@nixos</title>
-    <link>http://localhost:1313/sweetbbak.io/categories/themes/</link>
-    <description>Recent content in Themes on sweet@nixos</description>
+    <title>Themes Guide on sweet@nixos</title>
+    <link>http://localhost:1313/sweetbbak.io/series/themes-guide/</link>
+    <description>Recent content in Themes Guide on sweet@nixos</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>© [sweetbbak](https://github.com/sweetbbak)</copyright>
     <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/sweetbbak.io/categories/themes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/sweetbbak.io/series/themes-guide/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markdown Syntax Guide</title>
       <link>http://localhost:1313/sweetbbak.io/post/markdown-syntax/</link>

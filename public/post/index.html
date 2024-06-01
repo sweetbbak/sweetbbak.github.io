@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head><script src="/sweetbbak.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=sweetbbak.io/livereload" data-no-instant defer></script><title>Posts &ndash; sweet</title>
-
+    <head><script src="/sweetbbak.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=sweetbbak.io/livereload" data-no-instant defer></script><title>posts &ndash; sweet@nixos</title>
+<meta name="description" content="just a tiny little blog that doesn&#39;t really matter">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8"/>
@@ -20,11 +20,11 @@
 <link rel="stylesheet" href="http://localhost:1313/sweetbbak.io/css/custom.css">
 
 
-
-
-
-
-
+<link rel="icon" href="http://localhost:1313/sweetbbak.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/sweetbbak.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/sweetbbak.io/favicon-16x16.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/sweetbbak.io/apple-touch-icon.png">
+<link rel="manifest" href="http://localhost:1313/sweetbbak.io/site.webmanifest">
 </head>
 
     <body>
@@ -32,8 +32,14 @@
 
             <header class="page__header"><nav class="page__nav main-nav">
     <ul>
-    <h1 class="page__logo"><a href="http://localhost:1313/sweetbbak.io/" class="page__logo-inner">sweet</a></h1>
+    <h1 class="page__logo"><a href="http://localhost:1313/sweetbbak.io/" class="page__logo-inner">sweet@nixos</a></h1>
     
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="http://localhost:1313/sweetbbak.io/about/" title="">About</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="http://localhost:1313/sweetbbak.io/config/" title="config">config</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item active" href="http://localhost:1313/sweetbbak.io/post/" title="posts">posts</a></li>
     
     </ul>
 </nav>
@@ -42,10 +48,25 @@
 
             <section class="page__body">
     <header class="content__header">
-        <h1>Posts</h1>
+        <h1>posts</h1>
         
     </header>
 
+    
+    <article class="post">
+        <header class="post__header">
+            <h1><a href="http://localhost:1313/sweetbbak.io/post/nix-dual-boot/">Nix Dual Boot</a></h1>
+            <p class="post__meta">
+                sweetbbak,
+                <span class="date">31 May 2024</span>
+            </p>
+        </header>
+
+        <section class="post__summary">
+            How to dual-boot NixOS with Linux This is a simple tutorial on how to dual boot NixOS alongside an existing Linux installation. This tutorial will show you how to install NixOS into an existing boot partition, making it available in the current bootloader configuration. I will also lightly touch on the mounting an existing home directory and any drives you may have.
+This is tested on Apple Mac books, Linux with systemd-boot and it should work the exact same with Linux and Grub.
+        </section>
+    </article>
     
     <article class="post">
         <header class="post__header">
@@ -123,8 +144,22 @@
 
             <section class="page__aside">
                 <div class="aside__about">
+<div class="aside__about">
+    <img class="about__logo" src="http://localhost:1313/sweetbbak.io/images/rice.svg" alt="Logo">
+<h1 class="about__title">sweetbbak</h1>
+<p class="about__description">just a tiny little blog that doesn&rsquo;t really matter</p>
+</div>
+
 
 <ul class="aside__social-links">
+    
+    <li>
+        <a href="https://github.com/sweetbbak" rel="me" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>&nbsp;
+    </li>
+    
+    <li>
+        <a href="mailto:sweetbbak@gmail.com" rel="me" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>&nbsp;
+    </li>
     
 </ul>
 </div>
@@ -142,6 +177,14 @@
     
     
     
+      
+    
+      
+    
+      
+        
+      
+    
     
     
       
@@ -157,7 +200,7 @@
     
 </p>
 <br /><br />
-<p class="copyright"></p>
+<p class="copyright">© <a href="https://github.com/sweetbbak">sweetbbak</a></p>
 <p class="advertisement">Powered by <a href="https://gohugo.io/">hugo</a> and <a href="https://github.com/joeroe/risotto">risotto</a>.</p>
 </footer>
 

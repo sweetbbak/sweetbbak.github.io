@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head><script src="/sweetbbak.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=sweetbbak.io/livereload" data-no-instant defer></script><title>Nix Dual Boot &ndash; sweet</title>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="http://localhost:1313/sweetbbak.io/css/palettes/base16-dark.css">
+<link rel="stylesheet" href="http://localhost:1313/sweetbbak.io/css/risotto.css">
+<link rel="stylesheet" href="http://localhost:1313/sweetbbak.io/css/custom.css">
+
+
+
+
+
+
+
+</head>
+
+    <body>
+        <div class="page">
+
+            <header class="page__header"><nav class="page__nav main-nav">
+    <ul>
+    <h1 class="page__logo"><a href="http://localhost:1313/sweetbbak.io/" class="page__logo-inner">sweet</a></h1>
+    
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section class="page__body">
+    <header class="content__header">
+        <h1>Nix Dual Boot</h1>
+    </header>
+    <div class="content__body">
+        <h1 id="nixos-linux-dual-boot">NixOS Linux dual-boot</h1>
+<p>This is a simple tutorial on how to dual boot NixOS alongside an existing Linux installation.
+This tutorial will show you how to install NixOS into an existing boot partition, making it available
+in the current bootloader configuration. I will also lightly touch on the mounting an existing home directory
+and any drives you may have.</p>
+<p>This is tested on Apple Mac books, Linux with systemd-boot and it should work the exact same with
+Linux and Grub.</p>
+<h2 id="instructions">Instructions</h2>
+<p>Put NixOS on a USB drive. I personally used Ventoy.
+Boot into NixOS, close that installer and pull up a terminal! (I know, scary right? but don&rsquo;t worry)</p>
+<p>lets get a good idea of what the disks situation looks like, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>lsblk -fa
+</span></span></code></pre></div><p>This will output our disks alongside their UUID</p>
+<p>(edited for brevity)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>NAME        FSTYPE FSVER LABEL    UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+</span></span><span style="display:flex;"><span>sda
+</span></span><span style="display:flex;"><span>└─sda1      ext4   1.0            9fd4533e-aa5d-42d4-8f47-bdfccc870492    2.6T    21% /home/sweet/hdd
+</span></span><span style="display:flex;"><span>nvme1n1
+</span></span><span style="display:flex;"><span>├─nvme1n1p1 vfat   FAT32          D888-C228                             462.1M    54% /boot
+</span></span><span style="display:flex;"><span>├─nvme1n1p2 ext4   1.0   home     9c8d0fde-5902-4cdf-8c97-67a93b031f7e  366.6G    51% /home/sweet/eos
+</span></span><span style="display:flex;"><span>└─nvme1n1p3 ext4   1.0   EOS      3ba30b0b-d02a-4791-b3c1-53a4d922c978
+</span></span><span style="display:flex;"><span>nvme0n1
+</span></span><span style="display:flex;"><span>└─nvme0n1p1 ext4   1.0            12c1a8df-e095-42d9-aca3-7a2a8c124dd8    1.1T    36% /home/sweet/sdx
+</span></span><span style="display:flex;"><span>nvme2n1
+</span></span></code></pre></div><p>At this point I have some familiarity with which drive is which, in my case
+nvme2n1 is completely empty and unused. This is where I will be installing NixOS into.
+You can use <em>any</em> unused partition.</p>
+<h3 id="create-a-partition-and-format-it">Create a partition and format it</h3>
+<p>Now may be a good time to open up gparted that comes with the live disk (or your favorite partitioning tool)
+and sort this out. Create an empty partition if you need to or use an existing empty partition.
+Then format that partition in your desired disk format, I used ext4 since it is simple and standard.
+Remember to take note of the partitions full disk name (for example, nvme1n1p1 or sdb1 for hard disks)</p>
+<h3 id="mount-the-root-and-boot-partitions">Mount the root and boot partitions</h3>
+<p>Next, if you haven&rsquo;t opened that terminal yet, do so. Lets mount that partition at <code>/mnt</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo mkdir -p /mnt
+</span></span><span style="display:flex;"><span>sudo mount /dev/nvme2n1p1 /mnt
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># remember to replace nvme2n1p1 with your disk partition</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># sudo mount /dev/{disk_part} /mnt</span>
+</span></span></code></pre></div><p>Next, we will create the <code>boot</code> directory inside the mounted partition:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo mkdir -p /mnt/boot
+</span></span></code></pre></div><p>Now we want to take our existing EFI partition and mount it at <code>/mnt/boot</code>
+My existing EFI partition is on disk <code>nvme1n1</code> partition <code>nvme1n1p1</code> it is typically labeled
+as <code>FAT</code> or <code>VFAT</code> and may or may not have a label indicating that it is an EFI or BOOT partition.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo mount /dev/nvme1n1p1 /mnt/boot
+</span></span></code></pre></div><h3 id="optionally-mount-your-home-directory">Optionally mount your home directory</h3>
+<hr>
+<p>** OPTIONAL **
+optionally, you can also mount your existing home partition at <code>/mnt/home</code> if you want to.
+You can also do this step at a later time so if you are having trouble deciding there is no
+harm in waiting either.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo mkdir -p /mnt/home
+</span></span><span style="display:flex;"><span>sudo mount /dev/existing_home_partition /mnt/home
+</span></span></code></pre></div><hr>
+<h2 id="generate-the-nixos-config">Generate the NixOS config</h2>
+<p>next we are going to generate our Nix config that will direct the nix-install
+Run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>nixos-generate-config --root /mnt
+</span></span></code></pre></div><p>This will generate a config file at <code>/mnt/etc/nixos/configuration.nix</code>
+In the generated config file add:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>nixpkgs.config.allowUnfree <span style="color:#f92672">=</span> true;
+</span></span></code></pre></div><p>this is highly recommended unless you only want non-proprietary packages.</p>
+<h3 id="edit-the-config-file">Edit the config file</h3>
+<p>Now is also a good time to add a few packages, create a user and uncomment the specified lines
+for setting timezone, locale and things like that. No pressure, you can do this all later so keep
+it minimal. You do not have to worry about mounting extra disks at this point.</p>
+<p>Finally, execute:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>nixos-install
+</span></span></code></pre></div><p>if any errors pop-up, fix them now. This is imperative, especially if you are tweaking with the config file.
+<code>nixos-install</code> should show no errors and should complete successfully.</p>
+<p>and lets reboot:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>reboot
+</span></span></code></pre></div><p>You should be greeted with your bootloader, all the existing boot entries and a brand new option
+for booting into Nix. Easy clap. You don&rsquo;t need to do any of that <code>edk-shell</code> bs.</p>
+<h2 id="post-install-steps">Post install steps</h2>
+<p>There is a quick and easy trick for setting up mounted disks in Nix. You <em>don&rsquo;t</em> need to edit
+<code>/etc/fstab</code> or <code>/etc/nixos/hardware-configuration.nix</code></p>
+<p>All you need to do is create the mountpoints you want with <code>mkdir</code> and then mount those disks
+where you want them to live and then run <code>nixos-generate-config</code></p>
+<p>Don&rsquo;t worry this <strong><em>wont touch your existing config file</em></strong> it will only edit <code>/etc/nixos/hardware-configuration.nix</code>
+and add your disks and mountpoints so that they are mounted on boot. Easy peasy.</p>
+<h2 id="my-experience">My experience</h2>
+<p>This was a fairly simple process, however on first boot I realized that my user didn&rsquo;t have a password set.
+I couldn&rsquo;t login and I didn&rsquo;t know how to set the password. If this happens, just switch to another TTY using
+<code>alt+F2</code> (or alt + any F3-F9) to drop into a TTY.</p>
+<p>Login as root (the nix installer should have prompted for a password) and edit the <code>/etc/nixos/configuration.nix</code>
+file and change user options.</p>
+<p>For me, I ran</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkpasswd hunter2
+</span></span></code></pre></div><p>and copy-pasted the password hash into my user password config</p>
+<p>and then ran the following to set my user password:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>passwd your_username
+</span></span></code></pre></div><p>At this point I was able to login and start <code>Hyprland</code> using <code>greetd</code> and <code>tuigreet</code></p>
+<h2 id="links">Links</h2>
+<p><img src="https://superuser.com/questions/795879/how-to-configure-dual-boot-nixos-with-mac-os-x-on-an-uefi-macbook" alt="Link to stackoverflow thread about Mac and Nix"></p>
+<h1 id="nix-options-for-install">Nix options for install</h1>
+<p>These are some options that you may consider using during the install step, or after on first boot.</p>
+<h3 id="boot-options">Boot options</h3>
+<p>I enabled systemd-boot and allowed nix to manage boot entries (this hasn&rsquo;t overwritten any existing boot entries)
+I turned down the log level since I am using a TUI display manager and limited the amount
+of Nix generations to keep in the boot menu to 9.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  boot.loader.systemd-boot.enable <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>  boot.loader.efi.canTouchEfiVariables <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>  boot.consoleLogLevel <span style="color:#f92672">=</span> 1;
+</span></span><span style="display:flex;"><span>  boot.loader.systemd-boot.configurationLimit <span style="color:#f92672">=</span> 9;
+</span></span></code></pre></div><h3 id="user-opts">User opts</h3>
+<p>create a user, add them to groups, set the default shell and packages.
+Use <code>users.users.your_username</code></p>
+<p>(hash edited for brevity)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  users.users.sweet <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    isNormalUser <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    extraGroups <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;input&#34;</span> <span style="color:#e6db74">&#34;audio&#34;</span> <span style="color:#e6db74">&#34;video&#34;</span> <span style="color:#e6db74">&#34;libvirt&#34;</span> <span style="color:#e6db74">&#34;wheel&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#75715e"># Enable ‘sudo’ for the user.</span>
+</span></span><span style="display:flex;"><span>    hashedPassword <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span>$y$j9T$5<span style="color:#e6db74">...5xC&#34;</span>;
+</span></span><span style="display:flex;"><span>    shell <span style="color:#f92672">=</span> pkgs.zsh;
+</span></span><span style="display:flex;"><span>    packages <span style="color:#f92672">=</span> with pkgs; <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>      firefox
+</span></span><span style="display:flex;"><span>      tree
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>;
+</span></span></code></pre></div><h3 id="general-opts">General opts</h3>
+<p>allow the user to run random non-nix binaries.
+set-up nix garbage collection to manage space</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  programs.nix-ld.enable <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>  programs.nix-ld.libraries <span style="color:#f92672">=</span> with pkgs; <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>    stdenv.cc
+</span></span><span style="display:flex;"><span>    glibc
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  nix.gc <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> automatic <span style="color:#f92672">=</span> true; persistent <span style="color:#f92672">=</span> true; dates <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;05:00:00&#34;</span>; options <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;--delete-older-than 7d&#34;</span>; <span style="color:#f92672">}</span>;
+</span></span></code></pre></div><h3 id="using-greetd-and-wayland">Using greetd and Wayland</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  services.greetd <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    enable <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    settings <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      default_session <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        command <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>pkgs.greetd.tuigreet<span style="color:#e6db74">}</span><span style="color:#e6db74">/bin/tuigreet --time --cmd Hyprland&#34;</span>;
+</span></span><span style="display:flex;"><span>        user <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sweet&#34;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>;
+</span></span></code></pre></div><h3 id="nerd-fonts-and-steam">Nerd Fonts and Steam</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  fonts.packages <span style="color:#f92672">=</span> with pkgs; <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>    noto-fonts
+</span></span><span style="display:flex;"><span>    noto-fonts-cjk
+</span></span><span style="display:flex;"><span>    noto-fonts-emoji
+</span></span><span style="display:flex;"><span>    liberation_ttf
+</span></span><span style="display:flex;"><span>    fira-code
+</span></span><span style="display:flex;"><span>    fira-code-symbols
+</span></span><span style="display:flex;"><span>    mplus-outline-fonts.githubRelease
+</span></span><span style="display:flex;"><span>    dina-font
+</span></span><span style="display:flex;"><span>    proggyfonts
+</span></span><span style="display:flex;"><span>    jetbrains-mono
+</span></span><span style="display:flex;"><span>    ibm-plex
+</span></span><span style="display:flex;"><span>    maple-mono
+</span></span><span style="display:flex;"><span>    maple-mono-NF
+</span></span><span style="display:flex;"><span>    maple-mono-SC-NF
+</span></span><span style="display:flex;"><span>    iosevka
+</span></span><span style="display:flex;"><span>    fira-code-symbols
+</span></span><span style="display:flex;"><span>    nerdfonts
+</span></span><span style="display:flex;"><span>    powerline-fonts
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  programs.steam <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    enable <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    remotePlay.openFirewall <span style="color:#f92672">=</span> true; <span style="color:#75715e"># Open ports in the firewall for Steam Remote PlayE</span>
+</span></span><span style="display:flex;"><span>    dedicatedServer.openFirewall <span style="color:#f92672">=</span> true; <span style="color:#75715e"># Open ports in the firewall for Source Dedicated ServerE</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>;
+</span></span></code></pre></div><h3 id="hyprland">Hyprland</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  xdg.portal.enable <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>  programs.hyprland.enable <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>  programs.zsh.enable <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>  programs.thunar.enable <span style="color:#f92672">=</span> true;
+</span></span></code></pre></div><h1 id="use-the-nixos-unstable-channel">Use the <!-- raw HTML omitted --> channel</h1>
+<p>create a file at <code>/etc/nixos/unstable.nix</code> and import it into you configuration.nix file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#f92672">{</span> config, pkgs, ...<span style="color:#f92672">}</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>let
+</span></span><span style="display:flex;"><span>  baseconfig <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> allowUnfree <span style="color:#f92672">=</span> true; <span style="color:#f92672">}</span>;
+</span></span><span style="display:flex;"><span>  unstable <span style="color:#f92672">=</span> import &lt;nixos-unstable&gt; <span style="color:#f92672">{</span> config <span style="color:#f92672">=</span> baseconfig; <span style="color:#f92672">}</span>;
+</span></span><span style="display:flex;"><span>in <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  environment.systemPackages <span style="color:#f92672">=</span> with pkgs; <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># add packages from the unstable branch</span>
+</span></span><span style="display:flex;"><span>    unstable.wl-gammarelay-rs
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+</span></span><span style="display:flex;"><span>sudo nix-channel --update
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># rebuild</span>
+</span></span><span style="display:flex;"><span>sudo nix-rebuild switch --upgrade
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># check and see if &lt;nixos-unstable&gt; is added</span>
+</span></span><span style="display:flex;"><span>sudo nix-channel --list
+</span></span></code></pre></div><p>Anything else and you should be researching it first.</p>
+
+    </div>
+    <footer class="content__footer"></footer>
+
+            </section>
+
+            <section class="page__aside">
+                <div class="aside__about">
+
+<ul class="aside__social-links">
+    
+</ul>
+</div>
+                <hr>
+                <div class="aside__content">
+    
+    
+        <p>
+            
+            2024-05-25
+        </p>
+    
+
+    
+
+                </div>
+            </section>
+
+            <footer class="page__footer"><p>
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+          
+            
+            
+                <br/><span class="active">$ echo $LANG<br/><b></b></span><br/>
+
+            
+          
+      
+    
+</p>
+<br /><br />
+<p class="copyright"></p>
+<p class="advertisement">Powered by <a href="https://gohugo.io/">hugo</a> and <a href="https://github.com/joeroe/risotto">risotto</a>.</p>
+</footer>
+
+        </div>
+    </body>
+
+</html>

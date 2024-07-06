@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>© [sweetbbak](https://github.com/sweetbbak)</copyright>
-    <lastBuildDate>Fri, 31 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jul 2024 11:38:00 -0800</lastBuildDate>
     <atom:link href="http://localhost:1313/sweetbbak.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Glitch Art Image Processing Golang</title>
+      <link>http://localhost:1313/sweetbbak.io/post/glitch-art/</link>
+      <pubDate>Thu, 04 Jul 2024 11:38:00 -0800</pubDate>
+      <guid>http://localhost:1313/sweetbbak.io/post/glitch-art/</guid>
+      <description>Building a glitch art wallpaper utility It is truly astounding how often my journey in programming shatters my world view about certain concepts. For a lot of things in life we may not really ask &amp;ldquo;why&amp;rdquo; or &amp;ldquo;how&amp;rdquo; something works, we just accept it as normal while paying no attention to the amount of work and innovation that built the foundation for modern technology and standards. Image encoding formats are one of these things.</description>
+    </item>
     <item>
       <title>Nix Dual Boot</title>
       <link>http://localhost:1313/sweetbbak.io/post/nix-dual-boot/</link>

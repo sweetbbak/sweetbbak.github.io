@@ -1,6 +1,6 @@
 +++
 author = "sweetbbak"
-title = "Nix Dual Boot"
+title = "dual booting nixOS and linux"
 date = "2024-05-31"
 description = "How to dual boot NixOS with Linux"
 tags = [
@@ -9,6 +9,10 @@ tags = [
     "text",
 ]
 +++
+
+How to dual boot NixOS with any generic Linux installation.
+
+<!--more-->
 
 # How to dual-boot NixOS with Linux
 

@@ -1,25 +1,24 @@
 +++
 title = "About"
-description = "Hugo, the world's fastest framework for building websites"
-date = "2019-02-28"
-aliases = ["about-us", "about-hugo", "contact"]
-author = "Hugo Authors"
+description = "about the author"
+date = "07/06/2024"
+aliases = ["about-us", "author", "contact"]
+author = "sweetbbak"
 +++
 
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Hi! I'm sweetbbak. [sweetbbak](https://github.com/sweetbbak)
 
-Hugo makes use of a variety of open source projects including:
+I am a self-taught programmer who loves learning about computing concepts. I am currently most interested in:
 
-* https://github.com/yuin/goldmark
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
+- Unix domain programming
+- Low level systems
+- Command line utilities
+- creating tools that are fun, interesting and unique
+- image manipulation and color algorithms
+- text to speech systems
+- creating pipelines that scrape novels, turn them into audiobooks and encode them with an image as a video for youtube
+- terminal graphics
+- learning Linux by creating projects for Unix systems (ie: a display manager, sudo/doas, init system, coreutils etc...)
 
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
-
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
-
-Websites built with Hugo are extremely fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+Everything that I write is free and open-source. I currently use NixOS. My favorite interactive shell is ZSH and my favorite terminal is Kitty.
+I use Wayland + Hyprland (and River and Sway).

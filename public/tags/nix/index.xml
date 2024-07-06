@@ -10,11 +10,11 @@
     <lastBuildDate>Fri, 31 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/sweetbbak.io/tags/nix/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Nix Dual Boot</title>
+      <title>Dual booting NixOS with a shared UEFI</title>
       <link>http://localhost:1313/sweetbbak.io/post/nix-dual-boot/</link>
       <pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/sweetbbak.io/post/nix-dual-boot/</guid>
-      <description>How to dual-boot NixOS with Linux This is a simple tutorial on how to dual boot NixOS alongside an existing Linux installation. This tutorial will show you how to install NixOS into an existing boot partition, making it available in the current bootloader configuration. I will also lightly touch on the mounting an existing home directory and any drives you may have.&#xA;This is tested on Apple Mac books, Linux with systemd-boot and it should work the exact same with Linux and Grub.</description>
+      <description>&lt;p&gt;How to dual boot NixOS with any generic Linux installation.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

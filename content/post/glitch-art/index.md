@@ -1,9 +1,13 @@
 +++
-title = 'Glitch Art Image Processing Golang'
+title = 'glitch art and image processing with golang'
 author = 'sweetbbak'
 date = 2024-07-04T11:38:00-08:00
 draft = false
 +++
+
+Glitch art and color image processing in Go
+
+<!--more-->
 
 # Building a glitch art wallpaper utility
 

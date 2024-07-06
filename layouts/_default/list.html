@@ -1,0 +1,10 @@
+<!-- layouts/_default/list.html -->
+{{ define "main" }}
+<h2>All Posts</h2>
+{{ range .Pages }}
+<article>
+  <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+  <p>{{ .Summary }}</p>
+  <a href="{{ .Permalink }}">Read More</a>
+</article>
+{{ end }} {{ end }}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head><script src="/sweetbbak.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=sweetbbak.io/livereload" data-no-instant defer></script><title>Nix Dual Boot &ndash; sweet@nixos</title>
+    <head><script src="/sweetbbak.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=sweetbbak.io/livereload" data-no-instant defer></script><title>dual booting nixOS and linux &ndash; sweet@nixos</title>
 <meta name="description" content="just a tiny little blog that doesn&#39;t really matter">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,8 +37,6 @@
     
     <li class="main-nav__item"><a class="nav-main-item" href="http://localhost:1313/sweetbbak.io/about/" title="">About</a></li>
     
-    <li class="main-nav__item"><a class="nav-main-item" href="http://localhost:1313/sweetbbak.io/config/" title="config">config</a></li>
-    
     <li class="main-nav__item"><a class="nav-main-item active" href="http://localhost:1313/sweetbbak.io/post/" title="posts">posts</a></li>
     
     </ul>
@@ -48,10 +46,11 @@
 
             <section class="page__body">
     <header class="content__header">
-        <h1>Nix Dual Boot</h1>
+        <h1>dual booting nixOS and linux</h1>
     </header>
     <div class="content__body">
-        <h1 id="how-to-dual-boot-nixos-with-linux">How to dual-boot NixOS with Linux</h1>
+        <p>How to dual boot NixOS with any generic Linux installation.</p>
+<h1 id="how-to-dual-boot-nixos-with-linux">How to dual-boot NixOS with Linux</h1>
 <p>This is a simple tutorial on how to dual boot NixOS alongside an existing Linux installation.
 This tutorial will show you how to install NixOS into an existing boot partition, making it available
 in the current bootloader configuration. I will also lightly touch on the mounting an existing home directory
@@ -254,7 +253,6 @@ and import it into my packages. You can mix and match packages as you please:</p
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># check and see if &lt;nixos-unstable&gt; is added
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">sudo</span> <span style="color:#a6e22e">nix-channel</span> <span style="color:#a6e22e">--list</span>
 </span></span></code></pre></div><p>Anything else and you should be researching it first.</p>
-
     </div>
     <footer class="content__footer"></footer>
 
@@ -302,8 +300,6 @@ and import it into my packages. You can mix and match packages as you please:</p
     
     
     
-    
-      
     
       
     

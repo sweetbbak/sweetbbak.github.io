@@ -16,12 +16,5 @@
       <guid>http://localhost:1313/sweetbbak.io/post/</guid>
       <description></description>
     </item>
-    <item>
-      <title>config</title>
-      <link>http://localhost:1313/sweetbbak.io/config/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/sweetbbak.io/config/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>

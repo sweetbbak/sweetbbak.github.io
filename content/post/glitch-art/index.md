@@ -266,6 +266,8 @@ idk how this happened but it looks cool lmao
 
 ![image](./glitch.jpg)
 
+## Turning an image into ascii characters
+
 ## 3D Cube LUT
 
 How does a 3D LUT work? Each numeric row has three entries, which represent R, G, and B output values, often 0.0 to 1.0 (but could be higher or negative for some cases).

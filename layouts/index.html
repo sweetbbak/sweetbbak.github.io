@@ -1,0 +1,7 @@
+{{ define "main" }} {{ .Content }}
+
+<h1>~/latest-posts</h1>
+<br />
+{{ range ( where .Site.RegularPages "Type" "post" | first 3 ) }}
+<li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+{{end}} {{ end }}

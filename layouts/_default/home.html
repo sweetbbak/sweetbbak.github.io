@@ -1,3 +1,25 @@
-{{ range .Site.RegularPages.ByTitle }}
-<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-{{ end }}
+{{ define "main" }}
+<header class="content__header">
+  <h1>{{ .Title | markdownify }}</h1>
+</header>
+<div class="content__body">{{ .Content }}</div>
+<footer class="content__footer"></footer>
+{{ end }} {{ define "body" }}
+<h1 id="{{ .Title | urlize }}">{{ .Title | markdownify }}</h1>
+
+{{ .Content }}
+
+<ul>
+  {{ range .Pages }} {{ .Render "li" }} {{ end }}
+</ul>
+
+{{ end }} {{define "aside" }} {{ if .Params.description }}
+<p>{{ .Params.description }}</p>
+{{ end }} {{ if or (.Params.author) (.Params.date) }}
+<p>
+  {{ if .Params.author }}By {{ .Params.author }}{{ if .Date }}, {{ end }}{{ end
+  }} {{ if .Date }}{{ .Date.Format "2006-01-02" }}{{ end }}
+</p>
+{{ end }} {{ if and (.Params.toc) (.TableOfContents) }}
+<hr />
+On this page: {{ .TableOfContents }} {{ end }} {{ end }}

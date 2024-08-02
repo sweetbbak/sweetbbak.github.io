@@ -3,16 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/sweetbbak.io/</loc>
-    <lastmod>2024-07-14T10:38:43-08:00</lastmod>
+    <lastmod>2024-08-02T11:05:09-08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/sweetbbak.io/tags/index/</loc>
-    <lastmod>2024-07-14T10:38:43-08:00</lastmod>
+    <lastmod>2024-08-02T11:05:09-08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/sweetbbak.io/post/</loc>
-    <lastmod>2024-07-14T10:38:43-08:00</lastmod>
+    <lastmod>2024-08-02T11:05:09-08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/sweetbbak.io/tags/</loc>
-    <lastmod>2024-07-14T10:38:43-08:00</lastmod>
+    <lastmod>2024-08-02T11:05:09-08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/sweetbbak.io/post/your-cli-sucks/</loc>
+    <lastmod>2024-07-27T11:05:00-08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/sweetbbak.io/post/glitch-art/</loc>
     <lastmod>2024-07-04T11:38:00-08:00</lastmod>

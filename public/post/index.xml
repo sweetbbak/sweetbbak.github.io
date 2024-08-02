@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>© [sweetbbak](https://github.com/sweetbbak)</copyright>
-    <lastBuildDate>Thu, 04 Jul 2024 11:38:00 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jul 2024 11:05:00 -0800</lastBuildDate>
     <atom:link href="http://localhost:1313/sweetbbak.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why your CLI programs suck!</title>
+      <link>http://localhost:1313/sweetbbak.io/post/your-cli-sucks/</link>
+      <pubDate>Sat, 27 Jul 2024 11:05:00 -0800</pubDate>
+      <guid>http://localhost:1313/sweetbbak.io/post/your-cli-sucks/</guid>
+      <description>&lt;p&gt;How to create CLI programs and bash scripts that don&amp;rsquo;t suck&lt;/p&gt;</description>
+    </item>
     <item>
       <title>glitch art and image processing with golang</title>
       <link>http://localhost:1313/sweetbbak.io/post/glitch-art/</link>

@@ -137,8 +137,8 @@ Now, you can develop and install trash libs to your hearts content :3 :heart:
 try something like:
 
 ```bash
-sudo pacman -Syyu wofi --noconfirm
-ls /bin | wofi --show dmenu
+sudo pacman -Syyu wofi fd --noconfirm
+fd . /bin | wofi --show dmenu
 ```
 
 and see that it opens on the host machine! If you get really handy with it, you can even run Window Managers in a container.

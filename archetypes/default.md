@@ -4,3 +4,5 @@ date = {{ .Date }}
 author = "sweetbbak" 
 draft = true
 +++
+
+<!--more-->

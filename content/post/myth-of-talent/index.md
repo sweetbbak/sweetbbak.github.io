@@ -16,3 +16,16 @@ outline:
 
 - there is a spectrum of skill
 - there is predisposition to being good at something
+
+# Talent
+
+I do find it baffling the mythos that surrounds "talent" and "meritocracy" in the Western world. I subscribe to the idea that so-called "geniuses" are made and not born.
+Obviously there are factors into this, like success early on, and a variety of factors that may influence your predisposition to doing a certain thing well.
+
+But, at the same time, I know for a fact that far too many people put way too much weight on "talent" and often tell themselves that they can't do something.
+Someone may see you do something (like drawing or playing music) and say "wow, you are talented, I could never do that" but what you didn't see was how awful
+they were when they started and the thousands of hours they put into studying light and practicing constructing form from abstract shapes.
+
+I think that this is a dangerous lie. You, in fact, could get good at drawing... and you could overcome any blocks to that if you put in the effort and work.
+You just don't want to or are not following through. Some people will naturally be better, sure, but that is no excuse to say you are incapable of doing something.
+I almost find that notion insulting.

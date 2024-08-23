@@ -24,7 +24,7 @@ palette = "gruvbox-dark"
 # Sidebar: about/bio
 [params.about]
 title = "sweetbbak"
-description = "just a tiny little blog that doesn't really matter"
+description = "just a tiny little blog about programming and my observations."
 logo = "images/rice.svg"
 
 # Sidebar: social links

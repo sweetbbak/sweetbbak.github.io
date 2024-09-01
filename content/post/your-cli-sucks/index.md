@@ -21,12 +21,14 @@ Here are some very common mistakes that I see people make:
 
 ### they have a low chance of working out of the box
 
-I often see CLI tools that are very hard to use unless some arbitrary set of conditions is met
-and that set of conditions is not adequately communicated to the user.
+I often see CLI tools that are very hard to use unless some arbitrary set of conditions is met and that set of conditions is not adequately communicated to the user.
 
 ### they fail silently or they fail with indecipherable error messages
 
-handle your errors and add context to your errors when you bubble them up to the user!
+handle your errors and add context to your errors when you bubble them up to the user! There is nothing worse than getting a silent failure and sitting there like:
+"Uhhh, did something happen? what did it do?"
+or having to dig through 500 lines of plain white garbage text to find out where things went wrong, only to spend 2 hours to figure out that some obscure flag was
+required for some arbitrary reason.
 
 ### not providing some sort of visual feedback when something is happening in the background.
 

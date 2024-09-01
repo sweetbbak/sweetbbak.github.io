@@ -5,16 +5,25 @@ date = 2024-07-27T11:05:00-08:00
 draft = false
 +++
 
-How to create CLI programs and bash scripts that don't suck
+How to create CLI programs that don't suck
 
 <!--more-->
 
 # Why your CLI programs suck!
 
+One of my favorite things to do is to paruz through github searching for interesting software and CLI tools. This can be a great method of learning
+how other people solve problems. I have about 3,500 stars or so, purely from just doing this. It's a great way to see how to do things correctly, and how to do
+things incorrectly.
+
+I can't tell you how many times that I come across a unique and interesting tool, that frankly, has an awful user interface... and I find that to be somewhat tragic.
+
+Here are some very common mistakes that I see people make:
+
 - they have a low chance of working out of the box
   I often see CLI tools that are very hard to use unless some arbitrary set of conditions is met
+  and that set of conditions is not adequately communicated to the user.
 
-- they fail silently or with indecipherable error messages
+- they fail silently or they fail with indecipherable error messages
   handle your errors and add context to your errors when you bubble them up to the user!
 
 - not providing some sort of visual feedback when something is happening in the background.
@@ -23,7 +32,7 @@ How to create CLI programs and bash scripts that don't suck
   are incredibly simple to do in most langauges, manually or with a library.
 
 - endless walls of plain white text. (looking at you `apt`)
-  it is $CURRENT_YEAR, use some effing ansi colors... There are a large amount of amazing libraries that will
+  it is $CURRENT_YEAR, use some effing _ansi colors_... There are a large amount of amazing libraries that will
   completely handle this for you and all the things you need to watch out for like:
 
   - respecting the $NO_COLOR environment variable standard for environments that don't allow for color or user preference
@@ -149,8 +158,3 @@ func UserCacheDir() (string, error) {
 	return dir, nil
 }
 ```
-
-# Why your Bash scripts suck!
-
-- Quit hard-coding paths!
-- Use Shellcheck and bash-language-server to catch most footguns and common mistakes _we all_ make

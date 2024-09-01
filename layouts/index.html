@@ -2,6 +2,6 @@
 
 <h1>~/latest-posts</h1>
 <br />
-{{ range ( where .Site.RegularPages "Type" "post" | first 3 ) }}
+{{ range ( where .Site.RegularPages "Type" "post" | first 10 ) }}
 <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
 {{end}} {{ end }}

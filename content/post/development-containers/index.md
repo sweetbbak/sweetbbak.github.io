@@ -1,6 +1,7 @@
 +++
 title = 'Development Containers'
 date = 2024-08-02T11:48:30-08:00
+author = "sweetbbak" 
 +++
 
 How to use Podman, Docker or Lilipod containers to do simple and seamless development on Linux without cluttering up your system.

@@ -8,8 +8,7 @@ A response to a post on HackerNews that irked me regarding Anaconda and teaching
 
 <!--more-->
 
-This article was on HackerNews recently ![paulromer.net/escaping-from-anaconda/](https://paulromer.net/escaping-from-anaconda/) and
-I really couldn't believe what I was reading...
+This article was on HackerNews recently [paulromer.net/escaping-from-anaconda/](https://paulromer.net/escaping-from-anaconda/) and I really couldn't believe what I was reading...
 
 A quote from the article:
 
@@ -26,7 +25,7 @@ Then... shouldn't this be your job? To teach the students how to use the tools t
 This post goes on to go through an overly complicated process of hitting the exact MacOS specific shortcuts, and menu navigation... all too literally just
 move the default `.zshrc` file so that it isn't loaded, ALL because Anaconda adds a line to the shell rc file when it is installed.
 which I agree that this is extremely annoying, these tools do not respect a users machine and act like they are only running on WSL, servers or containers.
-A LOT of enterprise level tools conform to bad practice. Just refer to my rant on [why your cli sucks]({{< ref "/post/your-cli-sucks/index.md#not respecting the users system (warning: this is a long one, but important)" >}} "respecting the users system")
+A LOT of enterprise level tools conform to bad practice. Just refer to my rant on [why your cli sucks]({{< ref "/post/your-cli-sucks/index.md#not respecting the users system (warning: this is a long one, but important)" >}} "respecting the users system") in the "respecting users systems" section
 where a describe a lot of these bad practices alongside the laundry list of projects that violate best practice, and the `xdg-ninja` tool that is dedicated to fixing this.
 
 This is exactly why you should learn to use your tools properly, learn just a tiny tiny tiny bit of posix shell (which works for ALL posix shells sh, tcsh, bash, zsh etc...) so that you can understand what the heck is going on.
@@ -43,7 +42,7 @@ Anaconda provides a silent mode while installing (and an after install config op
 
 Here is _their_ example:
 
-```sh
+```fish
 curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -o ~/miniconda.sh
 # OR for Linux
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
@@ -55,7 +54,7 @@ and where `-p` is the install `$PREFIX`.
 
 to activate in the `$CURRENT` shell run:
 
-```sh
+```fish
 # ie shell.bash shell.zsh
 eval "$(/$HOME/miniconda/bin/conda shell.YOUR_SHELL_NAME hook)"
 # AND

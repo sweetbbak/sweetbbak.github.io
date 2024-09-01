@@ -1,7 +1,7 @@
 +++
 title = 'Vfio Passthrough Nixos'
 date = 2024-08-07T21:58:07-08:00
-draft = false
+author = 'sweetbbak'
 +++
 
 # Easy VFIO Passthrough on NixOS

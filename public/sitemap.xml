@@ -3,16 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/sweetbbak.io/</loc>
-    <lastmod>2024-08-02T11:05:09-08:00</lastmod>
+    <lastmod>2024-09-01T11:11:18-08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/sweetbbak.io/tags/index/</loc>
-    <lastmod>2024-08-02T11:05:09-08:00</lastmod>
+    <lastmod>2024-09-01T11:11:18-08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/sweetbbak.io/post/</loc>
-    <lastmod>2024-08-02T11:05:09-08:00</lastmod>
+    <lastmod>2024-09-01T11:11:18-08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/sweetbbak.io/post/response-to-mac-anaconda/</loc>
+    <lastmod>2024-09-01T11:11:18-08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/sweetbbak.io/tags/</loc>
-    <lastmod>2024-08-02T11:05:09-08:00</lastmod>
+    <lastmod>2024-09-01T11:11:18-08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/sweetbbak.io/post/vfio-passthrough-nixos/</loc>
+    <lastmod>2024-08-07T21:58:07-08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/sweetbbak.io/post/development-containers/</loc>
+    <lastmod>2024-08-02T11:48:30-08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/sweetbbak.io/post/your-cli-sucks/</loc>
     <lastmod>2024-07-27T11:05:00-08:00</lastmod>

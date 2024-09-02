@@ -4,7 +4,7 @@
     <title>Categories on sweet@nixos</title>
     <link>http://localhost:1313/sweetbbak.io/categories/</link>
     <description>Recent content in Categories on sweet@nixos</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© [sweetbbak](https://github.com/sweetbbak)</copyright>
     <atom:link href="http://localhost:1313/sweetbbak.io/categories/index.xml" rel="self" type="application/rss+xml" />

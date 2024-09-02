@@ -21,7 +21,7 @@
       <link>https://github.com/sweetbbak.io/post/vfio-passthrough-nixos/</link>
       <pubDate>Wed, 07 Aug 2024 21:58:07 -0800</pubDate>
       <guid>https://github.com/sweetbbak.io/post/vfio-passthrough-nixos/</guid>
-      <description>&lt;h1 id=&#34;easy-vfio-passthrough-on-nixos&#34;&gt;Easy VFIO Passthrough on NixOS&lt;/h1&gt;</description>
+      <description>&lt;p&gt;Easy VFIO Passthrough on NixOS&lt;/p&gt;</description>
     </item>
     <item>
       <title>Development Containers</title>

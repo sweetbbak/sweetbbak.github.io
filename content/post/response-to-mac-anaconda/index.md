@@ -56,7 +56,7 @@ to activate in the `$CURRENT` shell run:
 
 ```fish
 # ie shell.bash shell.zsh
-eval "$(/$HOME/miniconda/bin/conda shell.YOUR_SHELL_NAME hook)"
+eval "$("$HOME/miniconda/bin/conda" shell.YOUR_SHELL_NAME hook)"
 # AND
 conda init
 # and if your prefer the base env to NOT be auto activated

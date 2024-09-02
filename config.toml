@@ -20,6 +20,16 @@ noindex = false
 [params.theme]
 # palette = "base16-dark"
 palette = "gruvbox-dark"
+# palette = "windows-95"
+# palette = "tender"
+# palette = "tokyo-night-dark"
+# palette = "dracula"
+# palette = "material"
+# palette = "apprentice"
+# palette = "papercolor-dark"
+# palette = "gruvbox-light"
+# palette = "tokyo-night-light"
+# palette = ""
 
 # Sidebar: about/bio
 [params.about]

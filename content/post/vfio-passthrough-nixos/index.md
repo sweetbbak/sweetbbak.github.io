@@ -4,7 +4,7 @@ date = 2024-08-07T21:58:07-08:00
 author = 'sweetbbak'
 +++
 
-# Easy VFIO Passthrough on NixOS
+Easy VFIO Passthrough on NixOS
 
 <!--more-->
 

@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>posts on sweet@nixos</title>
-    <link>http://localhost:1313/sweetbbak.io/post/</link>
+    <link>https://github.com/sweetbbak.io/post/</link>
     <description>Recent content in posts on sweet@nixos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© [sweetbbak](https://github.com/sweetbbak)</copyright>
     <lastBuildDate>Sun, 01 Sep 2024 11:11:18 -0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/sweetbbak.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/sweetbbak.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Response to Mac Anaconda</title>
-      <link>http://localhost:1313/sweetbbak.io/post/response-to-mac-anaconda/</link>
+      <link>https://github.com/sweetbbak.io/post/response-to-mac-anaconda/</link>
       <pubDate>Sun, 01 Sep 2024 11:11:18 -0800</pubDate>
-      <guid>http://localhost:1313/sweetbbak.io/post/response-to-mac-anaconda/</guid>
+      <guid>https://github.com/sweetbbak.io/post/response-to-mac-anaconda/</guid>
       <description>&lt;p&gt;A response to a post on HackerNews that irked me regarding Anaconda and teaching students&lt;/p&gt;</description>
     </item>
     <item>
       <title>Vfio Passthrough Nixos</title>
-      <link>http://localhost:1313/sweetbbak.io/post/vfio-passthrough-nixos/</link>
+      <link>https://github.com/sweetbbak.io/post/vfio-passthrough-nixos/</link>
       <pubDate>Wed, 07 Aug 2024 21:58:07 -0800</pubDate>
-      <guid>http://localhost:1313/sweetbbak.io/post/vfio-passthrough-nixos/</guid>
+      <guid>https://github.com/sweetbbak.io/post/vfio-passthrough-nixos/</guid>
       <description>&lt;h1 id=&#34;easy-vfio-passthrough-on-nixos&#34;&gt;Easy VFIO Passthrough on NixOS&lt;/h1&gt;</description>
     </item>
     <item>
       <title>Development Containers</title>
-      <link>http://localhost:1313/sweetbbak.io/post/development-containers/</link>
+      <link>https://github.com/sweetbbak.io/post/development-containers/</link>
       <pubDate>Fri, 02 Aug 2024 11:48:30 -0800</pubDate>
-      <guid>http://localhost:1313/sweetbbak.io/post/development-containers/</guid>
+      <guid>https://github.com/sweetbbak.io/post/development-containers/</guid>
       <description>&lt;p&gt;How to use Podman, Docker or Lilipod containers to do simple and seamless development on Linux without cluttering up your system.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why your CLI programs suck!</title>
-      <link>http://localhost:1313/sweetbbak.io/post/your-cli-sucks/</link>
+      <link>https://github.com/sweetbbak.io/post/your-cli-sucks/</link>
       <pubDate>Sat, 27 Jul 2024 11:05:00 -0800</pubDate>
-      <guid>http://localhost:1313/sweetbbak.io/post/your-cli-sucks/</guid>
+      <guid>https://github.com/sweetbbak.io/post/your-cli-sucks/</guid>
       <description>&lt;p&gt;How to create CLI programs that don&amp;rsquo;t suck&lt;/p&gt;</description>
     </item>
     <item>
       <title>glitch art and image processing with golang</title>
-      <link>http://localhost:1313/sweetbbak.io/post/glitch-art/</link>
+      <link>https://github.com/sweetbbak.io/post/glitch-art/</link>
       <pubDate>Thu, 04 Jul 2024 11:38:00 -0800</pubDate>
-      <guid>http://localhost:1313/sweetbbak.io/post/glitch-art/</guid>
+      <guid>https://github.com/sweetbbak.io/post/glitch-art/</guid>
       <description>&lt;p&gt;Glitch art and color image processing in Go&lt;/p&gt;</description>
     </item>
     <item>
       <title>dual booting nixOS and linux</title>
-      <link>http://localhost:1313/sweetbbak.io/post/nix-dual-boot/</link>
+      <link>https://github.com/sweetbbak.io/post/nix-dual-boot/</link>
       <pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/sweetbbak.io/post/nix-dual-boot/</guid>
+      <guid>https://github.com/sweetbbak.io/post/nix-dual-boot/</guid>
       <description>&lt;p&gt;How to dual boot NixOS with any generic Linux installation.&lt;/p&gt;</description>
     </item>
   </channel>

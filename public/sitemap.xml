@@ -2,52 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/sweetbbak.io/</loc>
+    <loc>https://github.com/sweetbbak.io/</loc>
     <lastmod>2024-09-01T11:11:18-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/tags/index/</loc>
+    <loc>https://github.com/sweetbbak.io/tags/index/</loc>
     <lastmod>2024-09-01T11:11:18-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/post/</loc>
+    <loc>https://github.com/sweetbbak.io/post/</loc>
     <lastmod>2024-09-01T11:11:18-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/post/response-to-mac-anaconda/</loc>
+    <loc>https://github.com/sweetbbak.io/post/response-to-mac-anaconda/</loc>
     <lastmod>2024-09-01T11:11:18-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/tags/</loc>
+    <loc>https://github.com/sweetbbak.io/tags/</loc>
     <lastmod>2024-09-01T11:11:18-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/post/vfio-passthrough-nixos/</loc>
+    <loc>https://github.com/sweetbbak.io/post/vfio-passthrough-nixos/</loc>
     <lastmod>2024-08-07T21:58:07-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/post/development-containers/</loc>
+    <loc>https://github.com/sweetbbak.io/post/development-containers/</loc>
     <lastmod>2024-08-02T11:48:30-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/post/your-cli-sucks/</loc>
+    <loc>https://github.com/sweetbbak.io/post/your-cli-sucks/</loc>
     <lastmod>2024-07-27T11:05:00-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/post/glitch-art/</loc>
+    <loc>https://github.com/sweetbbak.io/post/glitch-art/</loc>
     <lastmod>2024-07-04T11:38:00-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/post/nix-dual-boot/</loc>
+    <loc>https://github.com/sweetbbak.io/post/nix-dual-boot/</loc>
     <lastmod>2024-05-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/tags/markdown/</loc>
+    <loc>https://github.com/sweetbbak.io/tags/markdown/</loc>
     <lastmod>2024-05-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/tags/nix/</loc>
+    <loc>https://github.com/sweetbbak.io/tags/nix/</loc>
     <lastmod>2024-05-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/tags/text/</loc>
+    <loc>https://github.com/sweetbbak.io/tags/text/</loc>
     <lastmod>2024-05-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/archives/</loc>
+    <loc>https://github.com/sweetbbak.io/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/about/</loc>
+    <loc>https://github.com/sweetbbak.io/about/</loc>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/categories/</loc>
+    <loc>https://github.com/sweetbbak.io/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/sweetbbak.io/series/</loc>
+    <loc>https://github.com/sweetbbak.io/series/</loc>
   </url>
 </urlset>

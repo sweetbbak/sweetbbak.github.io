@@ -3,18 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://github.com/sweetbbak.io/</loc>
-    <lastmod>2024-09-01T11:11:18-08:00</lastmod>
+    <lastmod>2024-09-12T00:30:06-08:00</lastmod>
   </url><url>
     <loc>https://github.com/sweetbbak.io/tags/index/</loc>
-    <lastmod>2024-09-01T11:11:18-08:00</lastmod>
+    <lastmod>2024-09-12T00:30:06-08:00</lastmod>
   </url><url>
     <loc>https://github.com/sweetbbak.io/post/</loc>
-    <lastmod>2024-09-01T11:11:18-08:00</lastmod>
-  </url><url>
-    <loc>https://github.com/sweetbbak.io/post/response-to-mac-anaconda/</loc>
-    <lastmod>2024-09-01T11:11:18-08:00</lastmod>
+    <lastmod>2024-09-12T00:30:06-08:00</lastmod>
   </url><url>
     <loc>https://github.com/sweetbbak.io/tags/</loc>
+    <lastmod>2024-09-12T00:30:06-08:00</lastmod>
+  </url><url>
+    <loc>https://github.com/sweetbbak.io/post/making-a-brainfuck-compiler/</loc>
+    <lastmod>2024-09-07T11:32:10-08:00</lastmod>
+  </url><url>
+    <loc>https://github.com/sweetbbak.io/post/response-to-mac-anaconda/</loc>
     <lastmod>2024-09-01T11:11:18-08:00</lastmod>
   </url><url>
     <loc>https://github.com/sweetbbak.io/post/vfio-passthrough-nixos/</loc>

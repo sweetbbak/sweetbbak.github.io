@@ -190,16 +190,26 @@ type Lexer struct {
 This allows us to condense `+++++` from 5 instructions, down to one. This greatly
 adds up over time.
 
-in our code generation step we can simply use a `printf` statmement with our `token.Repeat` as an argument to generate:
+in our code generation step we can simply use a `printf` statmement with our `token.Repeat` as an argument to generate the following:
 
 ```c
 // C
 array[idx] += 5;
 ```
 
+as opposed to incrementing the indexed array value five individual times:
+
+```c
+// C
+array[idx]++;
+array[idx]++;
+array[idx]++;
+array[idx]++;
+array[idx]++;
+```
+
 the other low-hanging optimization that we can make involves this instruction `[-]`. As stated above, this just decrements the current cell to `0`, so if a cell
-has a value of `333` it will iterate over this loop `333` times. Instead of that, we can stop at this token '[' and "peek" ahead to assert that the next to tokens are `-` and `]`
-In that case we can just automatically set the pointed at cell to`0` directly.
+has a value of `333` it will iterate over this loop `333` times. Instead of that, we can stop at the open loop token '[' and "peek" ahead to assert that the next to tokens are minus `-` and close loop `]`In that case we can just automatically set the pointed at cell to `0` directly.
 
 You could argue that `gcc` optimizes this stuff out, but you gotta remember that we are also writing an interpreter (and that we want the badge of a "self-optimizing" brainfuck compiler
 because it sounds cool as fuck).
@@ -223,6 +233,46 @@ while ((c = fgetc(infile)) != EOF) {
 ```
 
 Whereas in my case, we have the optimizations that I outlined above so it looks more like this:
+
+```go
+	for token_index < len(program) {
+		// the current token
+		tok := program[token_index]
+
+		switch tok.Type {
+		case lexer.INC_PTR:
+			buf.WriteString(fmt.Sprintf("  idx += %d;\n", tok.Repeat))
+		case lexer.DEC_PTR:
+			buf.WriteString(fmt.Sprintf("  idx -= %d;\n", tok.Repeat))
+		case lexer.INC_CELL:
+			buf.WriteString(fmt.Sprintf("  array[idx] += %d;\n", tok.Repeat))
+		case lexer.DEC_CELL:
+			buf.WriteString(fmt.Sprintf("  array[idx] -= %d;\n", tok.Repeat))
+		case lexer.OUTPUT:
+			buf.WriteString("   putchar(array[idx]);\n")
+		case lexer.INPUT:
+			buf.WriteString("   array[idx] = getchar();\n")
+		case lexer.LOOP_OPEN:
+      // our [-] optimization
+			if token_index+2 < len(program) {
+				// if the next two tokens exist (bounds check) and they are equal to - and ], set cell to 0
+				if program[token_index+1].Type == lexer.DEC_CELL && program[token_index+2].Type == lexer.LOOP_CLOSE {
+					buf.WriteString("   array[idx] = 0;")
+					token_index += 3
+					continue
+				}
+			}
+			buf.WriteString("   while ( array[idx] ) {\n")
+		case lexer.LOOP_CLOSE:
+			buf.WriteString("}\n")
+		default:
+			// token not handled, decide what to do here
+			// continue
+			return nil, fmt.Errorf("unhandled token: %s at index %d", tok.Type, token_index)
+		}
+		token_index++
+	}
+```
 
 Here are some benchmarks printing a Mandelbrot-set using `hyperfine`
 

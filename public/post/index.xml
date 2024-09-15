@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© [sweetbbak](https://github.com/sweetbbak)</copyright>
-    <lastBuildDate>Sun, 01 Sep 2024 11:11:18 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 07 Sep 2024 11:32:10 -0800</lastBuildDate>
     <atom:link href="https://github.com/sweetbbak.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Making a Brainfuck Compiler and TUI debugger in Bubbletea</title>
+      <link>https://github.com/sweetbbak.io/post/making-a-brainfuck-compiler/</link>
+      <pubDate>Sat, 07 Sep 2024 11:32:10 -0800</pubDate>
+      <guid>https://github.com/sweetbbak.io/post/making-a-brainfuck-compiler/</guid>
+      <description>&lt;p&gt;Creating a Brainfuck compiler in Golang&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Response to Mac Anaconda</title>
       <link>https://github.com/sweetbbak.io/post/response-to-mac-anaconda/</link>

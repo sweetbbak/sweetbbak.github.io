@@ -276,11 +276,11 @@ Whereas in my case, we have the optimizations that I outlined above so it looks 
 
 Here are some benchmarks printing a Mandelbrot-set using `hyperfine`
 
-| Command                                            |       Mean [ms] | Min [ms] | Max [ms] |     Relative |
-| :------------------------------------------------- | --------------: | -------: | -------: | -----------: |
-| `./mandelbrot-c`                                   |     512.0 ± 1.7 |    510.3 |    514.6 |         1.00 |
-| `./mandelbrot-go`                                  |    2217.8 ± 1.2 |   2216.1 |   2219.6 |  4.33 ± 0.01 |
-| `./bfcc --backend=interp ./examples/mandelbrot.bf` | 13572.8 ± 154.1 |  13347.0 |  13808.8 | 26.51 ± 0.31 |
+| Command                |       Mean [ms] | Min [ms] | Max [ms] |     Relative |
+| :--------------------- | --------------: | -------: | -------: | -----------: |
+| `./mandelbrot-c`       |     512.0 ± 1.7 |    510.3 |    514.6 |         1.00 |
+| `./mandelbrot-go`      |    2217.8 ± 1.2 |   2216.1 |   2219.6 |  4.33 ± 0.01 |
+| `./bfcc mandelbrot.bf` | 13572.8 ± 154.1 |  13347.0 |  13808.8 | 26.51 ± 0.31 |
 
 as you could guess `C` with `gcc` optimizations is by far the fastest, `Go` comes in second, and `interpreted` is the slowest (it genuinely doesn't feel that slow in general suprisingly enough)
 
@@ -299,5 +299,7 @@ go build -ldflags='-s -w' -o "${output}" "${output}.go"
 # Huge thanks to
 
 ![Katie Ball](https://gist.github.com/roachhd/dce54bec8ba55fb17d3a)
+
 ![skx/bfcc](https://github.com/skx/bfcc)
+
 ![brainfuck.org](http://brainfuck.org)

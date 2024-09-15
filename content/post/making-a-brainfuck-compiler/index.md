@@ -68,9 +68,11 @@ that I would ever understand them. In reality, its fairly simple (all things con
 
 The general overview is:
 
-```goat
-read a raw brainfuck file into memory *---. Lexing and Tokenization *---. Optimization *---. Code generation or interpretation *--. compilation
-```
+- Read a raw brainfuck file into memory
+- Lexing and Tokenization
+- Optimization
+- Code generation or interpretation
+- Compilation
 
 I'll save you the giant blocks of code and just give you the general gist of what goes down.
 

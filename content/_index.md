@@ -13,8 +13,6 @@ int main() {
 }
 ```
 
-<img src="author.png" alt="image of a woman, digital art" style="display: block; margin-left: auto; margin-right: auto;">
-
 Welcome! I'm sweetbbak. I'm a self-taught programmer and Linux enthusiast. I really enjoy learning about how programming languages work.
 I am fairly skilled with `Bash`, and `Golang`... and I'm currently learning `Rust`, `C`, `Nix` and `Zig`. I am also currently working on
 writing my own language and shell.

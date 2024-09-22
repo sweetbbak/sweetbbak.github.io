@@ -8,6 +8,11 @@ Creating a Brainfuck compiler in Golang
 
 <!--more-->
 
+![GitHub Image of bftui](https://raw.githubusercontent.com/sweetbbak/bfcc/main/assets/bftui.gif)
+
+here is the [accompanying repo](https://github.com/sweetbbak/bfcc) with instructions on how to build and run both the compiler and the debugger if you would like
+to read the code (its a mess, I won't lie) or test things out yourself.
+
 # Intro
 
 Brainfuck is a language that has really captured the minds of programmers since it's creation. It has overshadowed many other esoteric languages
@@ -50,11 +55,6 @@ Our Brainfuck compiler will:
 
 I've also created a "Debugger" using Bubbletea because I really wanted to see what Brainfuck's internal state looked like while it was running.
 It looks like this:
-
-![GitHub Image of bftui](https://raw.githubusercontent.com/sweetbbak/bfcc/main/assets/bftui.gif)
-
-and here is the [accompanying repo](https://github.com/sweetbbak/bfcc) with instructions on how to build and run both the compiler and the debugger if you would like
-to read the code (its a mess, I won't lie) or test things out yourself.
 
 The steps:
 
@@ -300,8 +300,8 @@ go build -ldflags='-s -w' -o "${output}" "${output}.go"
 
 # Huge thanks to
 
-![Katie Ball](https://gist.github.com/roachhd/dce54bec8ba55fb17d3a)
+[Katie Ball](https://gist.github.com/roachhd/dce54bec8ba55fb17d3a)
 
-![skx/bfcc](https://github.com/skx/bfcc)
+[skx/bfcc](https://github.com/skx/bfcc)
 
-![brainfuck.org](http://brainfuck.org)
+[brainfuck.org](http://brainfuck.org)

@@ -35,7 +35,8 @@ palette = "gruvbox-dark"
 [params.about]
 title = "sweetbbak"
 description = "just a tiny little blog about programming and my observations."
-logo = "images/rice.svg"
+# logo = "images/rice.svg"
+logo = "author.png"
 
 # Sidebar: social links
 # Available icon sets:

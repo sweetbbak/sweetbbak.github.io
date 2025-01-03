@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nix on sweet@nixos</title>
-    <link>https://github.com/sweetbbak.io/tags/nix/</link>
+    <link>http://localhost:1313/sweetbbak.io/tags/nix/</link>
     <description>Recent content in Nix on sweet@nixos</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <copyright>© [sweetbbak](https://github.com/sweetbbak)</copyright>
     <lastBuildDate>Fri, 31 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://github.com/sweetbbak.io/tags/nix/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/sweetbbak.io/tags/nix/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>dual booting nixOS and linux</title>
-      <link>https://github.com/sweetbbak.io/post/nix-dual-boot/</link>
+      <link>http://localhost:1313/sweetbbak.io/post/nix-dual-boot/</link>
       <pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://github.com/sweetbbak.io/post/nix-dual-boot/</guid>
+      <guid>http://localhost:1313/sweetbbak.io/post/nix-dual-boot/</guid>
       <description>&lt;p&gt;How to dual boot NixOS with any generic Linux installation.&lt;/p&gt;</description>
     </item>
   </channel>
